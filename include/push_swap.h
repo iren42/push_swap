@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:18:24 by iren              #+#    #+#             */
-/*   Updated: 2022/03/25 00:33:45 by iren             ###   ########.fr       */
+/*   Updated: 2022/03/25 21:00:01 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@ void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	sa(t_ps *ps);
 void	sb(t_ps *ps);
+
+int		is_sorted(t_list *l);
+void	mini_sort_a(t_ps *ps, t_list *lst);
+void	mini_sort_b(t_ps *ps, t_list *lst);
 
 #endif
