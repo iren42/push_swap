@@ -6,7 +6,7 @@
 #    By: iren <iren@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 17:41:07 by iren              #+#    #+#              #
-#    Updated: 2022/03/25 20:51:06 by iren             ###   ########.fr        #
+#    Updated: 2022/03/29 14:18:42 by iren             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,6 @@ LIBFT	= libft
 DIR_SOURCES	= src/
 
 SOURCES		=	push_swap.c \
-				ft_atoi.c \
-				ft_putstr_fd.c \
 				init.c \
 				utils_stack.c \
 				errors.c \
@@ -37,8 +35,7 @@ OBJS	= $(SRCS:.c=.o)
 
 CC		= gcc
 
-CFLAGS	= 
-#-Wall -Wextra -Werror 
+CFLAGS	= -Wall -Wextra -Werror 
 
 RM		= rm -f
 
@@ -60,7 +57,6 @@ norm	:
 clean	:
 		$(RM) $(OBJS)
 		make clean -C $(LIBFT)
-		$(RM) $(OBJS:.o=.d)
 
 fclean	: clean
 		$(RM) $(NAME)

@@ -6,13 +6,13 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 03:56:18 by iren              #+#    #+#             */
-/*   Updated: 2022/03/25 21:08:14 by iren             ###   ########.fr       */
+/*   Updated: 2022/03/29 14:29:20 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_duplicates(t_list *tt, int ac)
+static int	has_duplicate(t_list *tt)
 {
 	t_list	*p1;
 	t_list	*p2;
@@ -24,13 +24,12 @@ static void	check_duplicates(t_list *tt, int ac)
 		while (p2)
 		{
 			if (get_int(p1->content) == get_int(p2->content))
-			{
-				ft_error();
-			}
+				return (1);
 			p2 = p2->next;
 		}
 		p1 = p1->next;
 	}
+	return (0);
 }
 
 static void	simplify_nb(t_ps *pp)
@@ -65,7 +64,11 @@ void	init(t_ps *tt, char **av, int ac)
 	tt->ac = ac;
 	tt->a = fill_stack(av, ac);
 	tt->b = fill_stack(av, ac);
-	check_duplicates(tt->a, ac);
+	if (has_duplicate(tt->a))
+	{
+		free_ps(tt);
+		ft_error();
+	}
 	simplify_nb(tt);
 	ft_lstclear(&tt->b, free);
 	tt->b = 0;

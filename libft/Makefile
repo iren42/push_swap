@@ -6,7 +6,7 @@
 #    By: iren <iren@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/01 16:49:57 by iren              #+#    #+#              #
-#    Updated: 2020/09/05 00:42:36 by iren             ###   ########.fr        #
+#    Updated: 2022/03/29 14:33:53 by iren             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,9 +81,9 @@ bonus	: ${OBJS_BONUS} ${INCLUDE}
 	ranlib ${NAME}
 
 clean	:
-	rm -rf ${OBJS} ${OBJS_BONUS}
+	rm -f ${OBJS} ${OBJS_BONUS}
 
 fclean	: clean
-	rm -rf ${NAME}
+	rm -f ${NAME}
 
 re:		fclean all

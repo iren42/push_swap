@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 04:01:56 by iren              #+#    #+#             */
-/*   Updated: 2022/03/25 21:43:22 by iren             ###   ########.fr       */
+/*   Updated: 2022/03/29 14:21:46 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,8 @@ void	print_tint(t_int *nb)
 	printf("%d\n", nb->v);
 }
 
-
 void	print_list(t_list *l)
 {
-	int	*v;
-	int	i;
-
-	i = 0;
 	while (l != 0)
 	{
 		print_tint(l->content);
@@ -33,19 +28,34 @@ void	print_list(t_list *l)
 
 void	print_stacks(t_ps *pp)
 {
-	int	*v;
-	int	i;
-
-	i = 0;
 	printf("---AAAA\n");
 	print_list(pp->a);
 	printf("---BBBB\n");
 	print_list(pp->b);
 }
 
-t_list	*fill_stack(char **av, int ac)
+static int	is_number(char *s)
 {
 	int	i;
+
+	i = 0;
+	if (s)
+	{
+		if (s[0] == '-' && s[1] != '\0')
+			i++;
+		while (s[i])
+		{
+			if (!ft_isdigit(s[i]))
+				return (0);
+			i++;
+		}
+	}
+	return (1);
+}
+
+t_list	*fill_stack(char **av, int ac)
+{
+	int		i;
 	t_list	*res;
 	t_list	*new;
 	t_int	*val;
@@ -55,7 +65,15 @@ t_list	*fill_stack(char **av, int ac)
 	while (i < ac)
 	{
 		val = malloc(sizeof(t_int));
-		val->v = ft_atoi(av[i]);
+		if (val && is_number(av[i]))
+			val->v = ft_atoi(av[i]);
+		else
+		{
+			ft_lstclear(&res, free);
+			free(val);
+			res = 0;
+			ft_error();
+		}
 		new = ft_lstnew(val);
 		ft_lstadd_back(&res, new);
 		i++;

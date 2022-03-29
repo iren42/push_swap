@@ -6,42 +6,73 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:15:07 by iren              #+#    #+#             */
-/*   Updated: 2022/03/25 21:22:18 by iren             ###   ########.fr       */
+/*   Updated: 2022/03/29 14:19:11 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	radix_sort(t_ps *tt)
+static void	stay_or_move(t_ps *tt, int i)
+{
+	int	j;
+
+	if (tt->a)
+	{
+		j = -1;
+		while (j++ < tt->ac - 2)
+		{
+			if (((get_int(tt->a->content) >> i) & 1) == 1)
+				ra(tt);
+			else
+				pb(tt);
+		}
+	}
+}
+
+static void	radix_sort(t_ps *tt)
 {
 	int	max_bits;
 	int	max_num;
 	int	i;
-	int	j;
 
-	max_bits = 0;
-	max_num = tt->ac - 2;
-	while ((max_num >> max_bits) != 0)
+	if (tt->a)
 	{
-		i = -1;
-		while (i++ < max_bits)
+		max_bits = 0;
+		max_num = tt->ac - 2;
+		while ((max_num >> max_bits) != 0)
 		{
-			j = -1;
-			while (j++ < tt->ac - 2)
+			i = -1;
+			while (i++ < max_bits)
 			{
-				if (((get_int(tt->a->content) >> i) & 1) == 1)
-					ra(tt);
-				else
-					pb(tt);
+				stay_or_move(tt, i);
+				while (tt->b != 0)
+					pa(tt);
 			}
-			while (tt->b != 0)
-				pa(tt);
+			max_bits++;
 		}
-		max_bits++;
 	}
 }
 
-void	medium_sort(t_ps *ps)
+static void	sort_each_stack(t_ps *ps)
+{
+	if (ps->a && ps->b)
+	{
+		if (ft_lstsize(ps->a) > 2)
+			mini_sort_a(ps, ps->a);
+		else if (is_sorted(ps->a))
+			;
+		else
+			sa(ps);
+		if (ft_lstsize(ps->b) > 2)
+			mini_sort_b(ps, ps->b);
+		else if (is_sorted(ps->b))
+			;
+		else
+			sb(ps);
+	}
+}
+
+static void	medium_sort(t_ps *ps)
 {
 	int		mid;
 
@@ -55,18 +86,7 @@ void	medium_sort(t_ps *ps)
 			else
 				ra(ps);
 		}
-		if (ft_lstsize(ps->a) > 2)
-			mini_sort_a(ps, ps->a);
-		else if (is_sorted(ps->a))
-			;
-		else
-			sa(ps);
-		if (ft_lstsize(ps->b) > 2)
-			mini_sort_b(ps, ps->b);
-		else if (is_sorted(ps->b))
-			;
-		else
-			sb(ps);
+		sort_each_stack(ps);
 		while (ft_lstsize(ps->b) != 0)
 		{
 			pa(ps);

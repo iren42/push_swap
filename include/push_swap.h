@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:18:24 by iren              #+#    #+#             */
-/*   Updated: 2022/03/25 21:00:01 by iren             ###   ########.fr       */
+/*   Updated: 2022/03/29 14:31:29 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,18 @@ typedef struct s_ps
 	int	ac;
 	t_list	*a;
 	t_list	*b;
-	int	maxlen;
 }				t_ps;
 
 typedef struct s_int
 {
 	int	v;
-	int	len;
 }				t_int;
-
-int	ft_atoi(const char *s);
-void	ft_putstr_fd(char *s, int fd);
 
 unsigned int dec_to_binr(unsigned int k);
 void	init(t_ps *tt, char **av, int ac);
 
 void	set_int(t_int *t, int val);
-void	set_len(t_int *t, int val);
 int		get_int(t_int *t);
-int		get_len(t_int *t);
 
 t_list	*fill_stack(char **av, int ac);
 void	print_stacks(t_ps *ps);
@@ -58,6 +51,7 @@ void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	sa(t_ps *ps);
 void	sb(t_ps *ps);
+void	ss(t_ps *ps);
 
 int		is_sorted(t_list *l);
 void	mini_sort_a(t_ps *ps, t_list *lst);
