@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:15:07 by iren              #+#    #+#             */
-/*   Updated: 2022/03/29 14:19:11 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 13:16:59 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@ int	main(int ac, char **av)
 	t_ps	tt;
 
 	if (ac < 2)
-		ft_error();
+//		ft_error();
+		return (0);
 	init(&tt, av, ac);
 	if (is_sorted(tt.a))
 		;
@@ -112,7 +113,7 @@ int	main(int ac, char **av)
 		medium_sort(&tt);
 	else
 		radix_sort(&tt);
-	print_stacks(&tt);
+//	print_stacks(&tt);
 	free_ps(&tt);
 	return (0);
 }

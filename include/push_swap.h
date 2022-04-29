@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:18:24 by iren              #+#    #+#             */
-/*   Updated: 2022/03/29 14:31:29 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 14:25:23 by isabelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "libft.h"
 
 # define ERR_MSG "Error\n"
+
 typedef struct s_ps
 {
 	int	ac;

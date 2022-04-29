@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 19:23:49 by iren              #+#    #+#             */
-/*   Updated: 2020/09/01 17:13:52 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 14:14:37 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char				*ft_strnstr(const char *big,
 		const char *little, size_t len);
 size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
-int					ft_atoi(const char *nptr);
+long long			ft_atoil(const char *nptr);
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_strdup(const char *s);
 

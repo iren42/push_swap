@@ -6,11 +6,12 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 04:01:56 by iren              #+#    #+#             */
-/*   Updated: 2022/03/29 14:21:46 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 14:25:07 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 void	print_tint(t_int *nb)
 {
@@ -59,6 +60,7 @@ t_list	*fill_stack(char **av, int ac)
 	t_list	*res;
 	t_list	*new;
 	t_int	*val;
+	long long	buff;
 
 	i = 1;
 	res = 0;
@@ -66,14 +68,16 @@ t_list	*fill_stack(char **av, int ac)
 	{
 		val = malloc(sizeof(t_int));
 		if (val && is_number(av[i]))
-			val->v = ft_atoi(av[i]);
-		else
+			buff = ft_atoil(av[i]);
+		if (!val || !is_number(av[i]) || buff > INT_MAX || buff < INT_MIN)
 		{
 			ft_lstclear(&res, free);
 			free(val);
 			res = 0;
 			ft_error();
 		}
+		else
+			val->v = (int)buff;
 		new = ft_lstnew(val);
 		ft_lstadd_back(&res, new);
 		i++;

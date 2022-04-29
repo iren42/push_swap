@@ -6,12 +6,12 @@
 #    By: iren <iren@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/01 16:49:57 by iren              #+#    #+#              #
-#    Updated: 2022/03/29 14:33:53 by iren             ###   ########.fr        #
+#    Updated: 2022/04/29 14:11:14 by isabelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = ft_strlcat.c \
-	ft_atoi.c  \
+	ft_atoil.c  \
 	ft_strlcpy.c \
 	ft_bzero.c  \
 	ft_strlen.c \
