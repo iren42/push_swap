@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:15:07 by iren              #+#    #+#             */
-/*   Updated: 2022/04/29 19:47:21 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 21:11:56 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ static void	sort_each_stack(t_ps *ps)
 {
 	if (ps->a && ps->b)
 	{
-		if (ft_lstsize(ps->a) > 2)
+		if (ft_lstsize(ps->a) > 2) // 3 nb
 			mini_sort_a(ps, ps->a);
-		else if (is_sorted(ps->a))
+		else if (!is_sorted(ps->a))
 			;
 		else
 			sa(ps);
-		if (ft_lstsize(ps->b) > 2)
+		if (ft_lstsize(ps->b) > 2) // 3 nb
 			mini_sort_b(ps, ps->b);
-		else if (is_sorted(ps->b))
+		else if (!is_sorted(ps->b))
 			;
 		else
 			sb(ps);
@@ -71,7 +71,8 @@ static void	sort_each_stack(t_ps *ps)
 
 static void	medium_sort(t_ps *ps)
 {
-	int		mid;
+	int	mid;
+	int	count;
 
 	if (ps->a)
 	{
@@ -84,11 +85,14 @@ static void	medium_sort(t_ps *ps)
 				ra(ps);
 		}
 		sort_each_stack(ps);
-		while (ft_lstsize(ps->b) != 0)
+		count = 0;
+		while (ps->b != 0)
 		{
 			pa(ps);
-			ra(ps);
+			count++;
 		}
+		while (count-- != 0)
+			ra(ps);
 	}	
 }
 
@@ -96,7 +100,7 @@ int	main(int ac, char **av)
 {
 	t_ps	tt;
 
-	if (ac < 2)
+	if (ac < 3)
 		return (0);
 	init(&tt, av, ac);
 	if (is_sorted(tt.a))
