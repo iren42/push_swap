@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:15:07 by iren              #+#    #+#             */
-/*   Updated: 2022/04/29 21:11:56 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 21:15:03 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ static void	sort_each_stack(t_ps *ps)
 {
 	if (ps->a && ps->b)
 	{
-		if (ft_lstsize(ps->a) > 2) // 3 nb
+		if (ft_lstsize(ps->a) > 2)
 			mini_sort_a(ps, ps->a);
 		else if (!is_sorted(ps->a))
 			;
 		else
 			sa(ps);
-		if (ft_lstsize(ps->b) > 2) // 3 nb
+		if (ft_lstsize(ps->b) > 2)
 			mini_sort_b(ps, ps->b);
 		else if (!is_sorted(ps->b))
 			;
