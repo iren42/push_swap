@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/03 13:20:38 by iren              #+#    #+#             */
-/*   Updated: 2022/04/29 16:03:32 by iren             ###   ########.fr       */
+/*   Created: 2022/04/29 16:22:47 by iren              #+#    #+#             */
+/*   Updated: 2022/04/29 16:23:12 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
+#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+void	print_tint(t_int *nb)
 {
-	size_t	res;
+	printf("%d\n", nb->v);
+}
 
-	res = 0;
-	while (s[res])
-		res++;
-	return (res);
+void	print_list(t_list *l)
+{
+	while (l != 0)
+	{
+		print_tint(l->content);
+		l = l->next;
+	}
+}
+
+void	print_stacks(t_ps *pp)
+{
+	printf("---AAAA\n");
+	print_list(pp->a);
+	printf("---BBBB\n");
+	print_list(pp->b);
 }

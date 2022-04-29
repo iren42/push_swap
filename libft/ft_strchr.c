@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 14:35:20 by iren              #+#    #+#             */
-/*   Updated: 2020/09/01 20:53:42 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 17:19:47 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ char	*ft_strchr(const char *s, int c)
 	char	*st;
 
 	i = 0;
-	st = (char*)s;
+	st = (char *)s;
+	while (c < 0)
+		c += 256;
+	while (c > 256)
+		c -= 256;
 	while (st[i])
 	{
 		if (c == st[i])
@@ -27,5 +31,5 @@ char	*ft_strchr(const char *s, int c)
 	}
 	if (c == '\0')
 		return (&st[i]);
-	return ((char*)0);
+	return ((char *)0);
 }

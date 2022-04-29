@@ -6,7 +6,7 @@
 #    By: iren <iren@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 17:41:07 by iren              #+#    #+#              #
-#    Updated: 2022/04/29 14:17:27 by iren             ###   ########.fr        #
+#    Updated: 2022/04/29 18:26:44 by isabelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SOURCES		=	push_swap.c \
 			  	pa.c	\
 			  	sa.c	\
 				mini_sort.c \
-				getset_tint.c
+				getset_tint.c \
+				print.c
 
 SRCS	=	$(addprefix $(DIR_SOURCES), $(SOURCES))
 

@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 22:42:32 by iren              #+#    #+#             */
-/*   Updated: 2020/09/03 10:11:25 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 16:18:18 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list *ptr;
+	t_list	*ptr;
 
 	(void)ptr;
 	while (*lst)

@@ -6,12 +6,13 @@
 #    By: iren <iren@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/01 16:49:57 by iren              #+#    #+#              #
-#    Updated: 2022/04/29 14:11:14 by isabelle         ###   ########.fr        #
+#    Updated: 2022/04/29 17:27:49 by iren             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = ft_strlcat.c \
 	ft_atoil.c  \
+	ft_atoi.c  \
 	ft_strlcpy.c \
 	ft_bzero.c  \
 	ft_strlen.c \
@@ -70,11 +71,15 @@ NAME	= libft.a
 all	: ${NAME}
 
 .c.o:
-		${CC} -I/${INCLUDE} ${CFLAGS} -g -c $< -o ${<:.c=.o}
+		${CC} -I/${INCLUDE} ${CFLAGS} -fPIC -g -c $< -o ${<:.c=.o}
 
 $(NAME) : ${OBJS} ${INCLUDE}
 	ar rc ${NAME} ${OBJS}
 	ranlib ${NAME}
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) -c $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 bonus	: ${OBJS_BONUS} ${INCLUDE}
 	ar rc ${NAME} ${OBJS_BONUS}

@@ -6,34 +6,12 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 04:01:56 by iren              #+#    #+#             */
-/*   Updated: 2022/04/29 14:25:07 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 16:39:03 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
-
-void	print_tint(t_int *nb)
-{
-	printf("%d\n", nb->v);
-}
-
-void	print_list(t_list *l)
-{
-	while (l != 0)
-	{
-		print_tint(l->content);
-		l = l->next;
-	}
-}
-
-void	print_stacks(t_ps *pp)
-{
-	printf("---AAAA\n");
-	print_list(pp->a);
-	printf("---BBBB\n");
-	print_list(pp->b);
-}
 
 static int	is_number(char *s)
 {
@@ -54,12 +32,20 @@ static int	is_number(char *s)
 	return (1);
 }
 
+static void	error_init_tint(t_int *val, t_list *res)
+{
+	ft_lstclear(&res, free);
+	free(val);
+	res = 0;
+	ft_error();
+}
+
 t_list	*fill_stack(char **av, int ac)
 {
-	int		i;
-	t_list	*res;
-	t_list	*new;
-	t_int	*val;
+	int			i;
+	t_list		*res;
+	t_list		*new;
+	t_int		*val;
 	long long	buff;
 
 	i = 1;
@@ -70,12 +56,7 @@ t_list	*fill_stack(char **av, int ac)
 		if (val && is_number(av[i]))
 			buff = ft_atoil(av[i]);
 		if (!val || !is_number(av[i]) || buff > INT_MAX || buff < INT_MIN)
-		{
-			ft_lstclear(&res, free);
-			free(val);
-			res = 0;
-			ft_error();
-		}
+			error_init_tint(val, res);
 		else
 			val->v = (int)buff;
 		new = ft_lstnew(val);

@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 20:05:53 by iren              #+#    #+#             */
-/*   Updated: 2020/09/03 10:15:34 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 16:01:52 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	*ft_memset(void *s, int c, size_t n)
 		*(s2 + i) = (unsigned char)c;
 		i++;
 	}
-	return ((void*)s2);
+	return ((void *)s2);
 }

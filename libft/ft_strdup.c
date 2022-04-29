@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 20:49:58 by iren              #+#    #+#             */
-/*   Updated: 2020/09/03 10:18:12 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 16:17:20 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ char	*ft_strdup(const char *str)
 	int		i;
 
 	i = 0;
-	s = (char*)str;
+	s = (char *)str;
 	while (s[i])
 		i++;
-	if (!(res = malloc(sizeof(char) * (i + 1))))
+	res = malloc(sizeof(char) * (i + 1));
+	if (!res)
 		return (0);
 	i = 0;
 	while (s[i])

@@ -6,50 +6,47 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:15:07 by iren              #+#    #+#             */
-/*   Updated: 2022/04/29 13:16:59 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 19:47:21 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	stay_or_move(t_ps *tt, int i)
+static int	calc_max_bits(t_ps *tt)
 {
-	int	j;
+	int	max_num;
+	int	res;
 
-	if (tt->a)
+	max_num = tt->ac - 2;
+	res = 0;
+	while ((max_num >> res) != 0)
+		++res;
+	return (res);
+}
+
+static void	radix_sort(t_ps *tt)
+{
+	int		i;
+	int		j;
+	int		size;
+	int		max_bits;
+
+	i = 0;
+	size = ft_lstsize(tt->a);
+	max_bits = calc_max_bits(tt);
+	while (i < max_bits)
 	{
-		j = -1;
-		while (j++ < tt->ac - 2)
+		j = 0;
+		while (j++ < size)
 		{
 			if (((get_int(tt->a->content) >> i) & 1) == 1)
 				ra(tt);
 			else
 				pb(tt);
 		}
-	}
-}
-
-static void	radix_sort(t_ps *tt)
-{
-	int	max_bits;
-	int	max_num;
-	int	i;
-
-	if (tt->a)
-	{
-		max_bits = 0;
-		max_num = tt->ac - 2;
-		while ((max_num >> max_bits) != 0)
-		{
-			i = -1;
-			while (i++ < max_bits)
-			{
-				stay_or_move(tt, i);
-				while (tt->b != 0)
-					pa(tt);
-			}
-			max_bits++;
-		}
+		while (tt->b != 0)
+			pa(tt);
+		i++;
 	}
 }
 
@@ -100,7 +97,6 @@ int	main(int ac, char **av)
 	t_ps	tt;
 
 	if (ac < 2)
-//		ft_error();
 		return (0);
 	init(&tt, av, ac);
 	if (is_sorted(tt.a))
@@ -113,7 +109,6 @@ int	main(int ac, char **av)
 		medium_sort(&tt);
 	else
 		radix_sort(&tt);
-//	print_stacks(&tt);
 	free_ps(&tt);
 	return (0);
 }

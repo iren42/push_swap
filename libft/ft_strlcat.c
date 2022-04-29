@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 20:28:44 by iren              #+#    #+#             */
-/*   Updated: 2020/09/01 21:25:21 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 16:13:13 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	t_dest = ft_strlen(dest);
 	t_src = ft_strlen(src);
 	j = 0;
-	ssrc = (char*)src;
+	ssrc = (char *)src;
 	if (t_dest >= size)
 		return (t_src + size);
 	size -= t_dest;

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoil.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 18:52:41 by iren              #+#    #+#             */
-/*   Updated: 2022/04/29 16:13:32 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/29 16:41:42 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long	ft_atoil(const char *s)
+int	ft_atoi(const char *s)
 {
-	long long	res;
+	long		res;
 	int			i;
 	int			minus;
 
@@ -29,14 +29,14 @@ long long	ft_atoil(const char *s)
 			minus *= (-1);
 		i++;
 	}
-	while (s[i] && (s[i] >= '0' && s[i] <= '9'))
+	while (s[i] && (s[i] >= '0' && s[i] <= '9') && !(res > 2147483648))
 	{
 		res = res * 10 + s[i] - '0';
 		i++;
 	}
 	if (res > 2147483647 && minus > 0)
-		return (2147483650);
+		return (-1);
 	if (res > 2147483648 && minus < 0)
-		return (-2147483650);
+		return (0);
 	return (minus * res);
 }
