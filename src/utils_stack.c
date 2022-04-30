@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 04:01:56 by iren              #+#    #+#             */
-/*   Updated: 2022/04/30 10:00:51 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/30 20:38:31 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ static int	is_number(char *s)
 static void	error_init_tint(t_int *val, t_list *res)
 {
 	ft_lstclear(&res, free);
-	free(val);
 	res = 0;
+	if (val)
+	{
+		free(val);
+		val = 0;
+	}
 	ft_error();
 }
 
@@ -60,6 +64,8 @@ t_list	*fill_stack(char **av, int ac)
 		else
 			val->v = (int)buff;
 		new = ft_lstnew(val);
+		if (!new)
+			error_init_tint(val, res);
 		ft_lstadd_back(&res, new);
 		i++;
 	}
