@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/30 10:07:41 by iren              #+#    #+#             */
-/*   Updated: 2022/04/30 10:11:31 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/30 12:13:32 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	empty_b(t_ps *ps)
 	if (ps->b)
 	{
 		count = 0;
-		if (ft_lstsize(ps->a) == 3 && ft_lstsize(ps->b) == 3)
+		if (ft_lstsize(ps->b) == 3)
 		{
 			while (ps->b != 0)
 			{
