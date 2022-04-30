@@ -6,7 +6,7 @@
 #    By: iren <iren@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 17:41:07 by iren              #+#    #+#              #
-#    Updated: 2022/04/29 21:12:33 by iren             ###   ########.fr        #
+#    Updated: 2022/04/30 10:20:09 by iren             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,10 @@ SOURCES		=	push_swap.c \
 			  	rra.c	\
 			  	pa.c	\
 			  	sa.c	\
-				mini_sort.c \
+				three_sort.c \
+				fourtosix_sort.c \
 				getset_tint.c
+#	print.c
 
 SRCS	=	$(addprefix $(DIR_SOURCES), $(SOURCES))
 
@@ -42,7 +44,8 @@ RM		= rm -f
 all		: $(NAME)
 
 %.o		: %.c $(HEADER)
-		$(CC) $(CFLAGS) -Iinclude -g -c $< -o $@
+		$(CC) $(CFLAGS) -Iinclude -c $< -o $@
+#		$(CC) $(CFLAGS) -Iinclude -g -c $< -o $@
 
 $(NAME) : $(OBJS) $(HEADER) $(LIBFT)
 		make -C $(LIBFT)
@@ -52,7 +55,7 @@ $(NAME) : $(OBJS) $(HEADER) $(LIBFT)
 
 norm	:
 		norminette $(SRCS)
-		norminette -R CheckDefine $(HEADER)
+		norminette $(HEADER)
 
 clean	:
 		$(RM) $(OBJS)

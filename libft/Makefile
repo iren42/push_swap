@@ -6,7 +6,7 @@
 #    By: iren <iren@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/01 16:49:57 by iren              #+#    #+#              #
-#    Updated: 2022/04/29 17:27:49 by iren             ###   ########.fr        #
+#    Updated: 2022/04/30 10:19:22 by iren             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,8 @@ NAME	= libft.a
 all	: ${NAME}
 
 .c.o:
-		${CC} -I/${INCLUDE} ${CFLAGS} -fPIC -g -c $< -o ${<:.c=.o}
+		${CC} -I/${INCLUDE} ${CFLAGS} -c $< -o ${<:.c=.o}
+#		${CC} -I/${INCLUDE} ${CFLAGS} -fPIC -g -c $< -o ${<:.c=.o}
 
 $(NAME) : ${OBJS} ${INCLUDE}
 	ar rc ${NAME} ${OBJS}

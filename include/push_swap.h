@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:18:24 by iren              #+#    #+#             */
-/*   Updated: 2022/04/29 19:04:27 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/30 10:17:49 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ void	set_int(t_int *t, int val);
 int		get_int(t_int *t);
 
 t_list	*fill_stack(char **av, int ac);
-void	print_stacks(t_ps *ps);
-void	print_tint(t_int *nb);
-void	ft_error(void);
 void	free_ps(t_ps *ps);
+
+void	ft_error(void);
 
 void	pa(t_ps *ps);
 void	pb(t_ps *ps);
@@ -53,8 +52,9 @@ void	sb(t_ps *ps);
 void	ss(t_ps *ps);
 
 int		is_sorted(t_list *l);
-void	mini_sort_a(t_ps *ps, t_list *lst);
-void	mini_sort_b(t_ps *ps, t_list *lst);
+void	three_sort_a(t_ps *ps, t_list *lst);
+void	three_sort_b(t_ps *ps, t_list *lst);
+void	fourtosix_sort(t_ps *ps);
 
 void	print_stacks(t_ps *p);
 

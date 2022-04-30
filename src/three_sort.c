@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mini_sort.c                                        :+:      :+:    :+:   */
+/*   three_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 20:48:58 by iren              #+#    #+#             */
-/*   Updated: 2022/03/25 20:58:44 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/30 10:09:37 by isabelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	is_sorted(t_list *l)
 	return (1);
 }
 
-void	mini_sort_a(t_ps *ps, t_list *lst)
+void	three_sort_a(t_ps *ps, t_list *lst)
 {
 	if (lst && !is_sorted(lst))
 	{
@@ -53,7 +53,7 @@ void	mini_sort_a(t_ps *ps, t_list *lst)
 	}
 }
 
-void	mini_sort_b(t_ps *ps, t_list *lst)
+void	three_sort_b(t_ps *ps, t_list *lst)
 {
 	if (lst && !is_sorted(lst))
 	{
@@ -72,7 +72,7 @@ void	mini_sort_b(t_ps *ps, t_list *lst)
 		}
 		else
 		{
-			if (get_int(lst->next->content) == 0)
+			if (get_int(lst->next->content) == 3)
 				sb(ps);
 			else
 				rrb(ps);

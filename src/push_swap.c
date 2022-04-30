@@ -6,7 +6,7 @@
 /*   By: iren <iren@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 00:15:07 by iren              #+#    #+#             */
-/*   Updated: 2022/04/29 21:15:03 by iren             ###   ########.fr       */
+/*   Updated: 2022/04/30 10:10:45 by iren             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,57 +50,11 @@ static void	radix_sort(t_ps *tt)
 	}
 }
 
-static void	sort_each_stack(t_ps *ps)
-{
-	if (ps->a && ps->b)
-	{
-		if (ft_lstsize(ps->a) > 2)
-			mini_sort_a(ps, ps->a);
-		else if (!is_sorted(ps->a))
-			;
-		else
-			sa(ps);
-		if (ft_lstsize(ps->b) > 2)
-			mini_sort_b(ps, ps->b);
-		else if (!is_sorted(ps->b))
-			;
-		else
-			sb(ps);
-	}
-}
-
-static void	medium_sort(t_ps *ps)
-{
-	int	mid;
-	int	count;
-
-	if (ps->a)
-	{
-		mid = (ps->ac - 2) / 2;
-		while (ft_lstsize(ps->a) - ft_lstsize(ps->b) > 1)
-		{
-			if (get_int(ps->a->content) > mid)
-				pb(ps);
-			else
-				ra(ps);
-		}
-		sort_each_stack(ps);
-		count = 0;
-		while (ps->b != 0)
-		{
-			pa(ps);
-			count++;
-		}
-		while (count-- != 0)
-			ra(ps);
-	}	
-}
-
 int	main(int ac, char **av)
 {
 	t_ps	tt;
 
-	if (ac < 3)
+	if (ac < 2)
 		return (0);
 	init(&tt, av, ac);
 	if (is_sorted(tt.a))
@@ -108,9 +62,9 @@ int	main(int ac, char **av)
 	else if (ac < 4)
 		sa(&tt);
 	else if (ac < 5)
-		mini_sort_a(&tt, tt.a);
+		three_sort_a(&tt, tt.a);
 	else if (ac < 8)
-		medium_sort(&tt);
+		fourtosix_sort(&tt);
 	else
 		radix_sort(&tt);
 	free_ps(&tt);
